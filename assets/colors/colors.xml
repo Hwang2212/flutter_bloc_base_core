@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource>
+    <color name="white" type="material">#F8F9FA</color>
+    <color name="lightest_gray_e9ecef" type="material">#E9ECEF</color>
+    <color name="lighter_gray_dee2e6" type="material">#DEE2E6</color>
+    <color name="light_gray_ced4da" type="material">#CED4DA</color>
+    <color name="gray_adb5bd" type="material">#ADB5BD</color>
+    <color name="grayer_6c757d" type="material">#6C757D</color>
+    <color name="dark_gray_495057" type="material">#495057</color>
+    <color name="darker_gray_343a40" type="material">#343A40</color>
+    <color name="black" type="material">#212529</color>
+</resource>
