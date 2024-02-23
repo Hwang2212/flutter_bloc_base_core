@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:wesplit/common/common.dart';
-import 'package:wesplit/features/splash/splash.dart';
+import 'package:wesplit/features/splash/views/splash_view.dart';
+import 'package:wesplit/generated/l10n.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,7 +12,16 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: AppTheme.light,
-      home: const SplashPage(),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      navigatorKey: AppConfig.navigatorKey,
+      initialRoute: SplashPage.routeName,
+      onGenerateRoute: RouteGenerator.onGenerateRoute,
     );
   }
 }

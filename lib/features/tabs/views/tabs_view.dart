@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wesplit/common/common.dart';
+import 'package:wesplit/features/home/home.dart';
+import 'package:wesplit/features/profile/profile.dart';
 import 'package:wesplit/features/tabs/tabs.dart';
 
 class TabsPage extends StatelessWidget {
@@ -16,6 +19,16 @@ class TabsPage extends StatelessWidget {
 }
 
 class TabsView extends StatefulWidget {
+  static final tabPages = [
+    TabPageModel(
+      key: GlobalKey<NavigatorState>(),
+      page: const HomePage(),
+    ),
+    TabPageModel(
+      key: GlobalKey<NavigatorState>(),
+      page: const ProfilePage(),
+    ),
+  ];
   const TabsView({super.key});
 
   @override
@@ -25,7 +38,30 @@ class TabsView extends StatefulWidget {
 class _TabsViewState extends State<TabsView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return BlocBuilder<TabsBloc, TabsState>(builder: (context, state) {
+      return AppScaffold(
+        body: _buildMainBody(state.currentTab.index),
+      );
+    });
+  }
+
+  Widget _buildMainBody(int currentTabIndex) {
+    return IndexedStack(
+      index: currentTabIndex,
+      children: TabsView.tabPages.map((tabPage) {
+        return Navigator(
+          key: tabPage.key,
+          onGenerateRoute: (settings) {
+            return MaterialPageRoute<void>(
+              builder: (_) {
+                return tabPage.page;
+              },
+              settings: settings,
+            );
+          },
+        );
+      }).toList(),
+    );
   }
 }
 
@@ -205,24 +241,7 @@ class _TabsViewState extends State<TabsView> {
 //     );
 //   }
 
-//   Widget _buildMainBody(int currentTabIndex) {
-//     return IndexedStack(
-//       index: currentTabIndex,
-//       children: TabsView.tabPages.map((tabPage) {
-//         return Navigator(
-//           key: tabPage.key,
-//           onGenerateRoute: (settings) {
-//             return MaterialPageRoute<void>(
-//               builder: (_) {
-//                 return tabPage.page;
-//               },
-//               settings: settings,
-//             );
-//           },
-//         );
-//       }).toList(),
-//     );
-//   }
+
 
 //   void _onTabSelected(BuildContext context, int index) {
 //     final tab = Tabs.values[index];

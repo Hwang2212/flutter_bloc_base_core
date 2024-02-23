@@ -114,6 +114,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bill'**
   String get bill;
+
+  /// No description provided for @hi.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi'**
+  String get hi;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

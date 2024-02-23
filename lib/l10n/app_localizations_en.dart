@@ -15,4 +15,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bill => 'Bill';
+
+  @override
+  String get hi => 'Hi';
 }

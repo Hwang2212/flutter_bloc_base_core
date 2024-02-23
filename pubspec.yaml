@@ -30,6 +30,9 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.9
   bloc: ^8.1.2
+  dartz: ^0.10.1
+  flutter_easyloading: ^3.0.5
+  flutter_form_builder: ^9.2.1
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,19 @@
 // WeSplit12616!
 import 'package:flutter/material.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key, required this.title});
+class HomePage extends StatelessWidget {
+  static const routeName = '/home';
 
-  final String title;
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const HomeView();
+  }
+}
+
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -24,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text('Wat'),
       ),
       body: SingleChildScrollView(
         child: SizedBox(

@@ -6,7 +6,7 @@ An app for WeSplit.
 
 # We Split
 
-A mobile app built using Flutter dart language, it allows users to purchase product sold by WeSplit and could view their own profile.
+
 
 ## Code Structure
 
