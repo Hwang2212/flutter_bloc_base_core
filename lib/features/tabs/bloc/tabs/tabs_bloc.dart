@@ -26,7 +26,7 @@ class TabsBloc extends Bloc<TabsEvent, TabsState> {
   }
 
   TabsState _mapNavigateToTabEventToState(NavigateToTab event) {
-    // AGMO loongyeat: Pop to root page if the current tab is the
+    // ARTISAN Andy: Pop to root page if the current tab is the
     // tab we are switching to, i.e.
     //
     // Navigation stack:
