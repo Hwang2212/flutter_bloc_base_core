@@ -5,7 +5,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get wesplit => 'WeSplit';
+  String get flutter_bloc_base => 'FlutterBlocBase';
 
   @override
   String get home => 'Home';

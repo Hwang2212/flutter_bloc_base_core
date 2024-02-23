@@ -91,11 +91,11 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// No description provided for @wesplit.
+  /// No description provided for @flutter_bloc_base.
   ///
   /// In en, this message translates to:
-  /// **'WeSplit'**
-  String get wesplit;
+  /// **'FlutterBlocBase'**
+  String get flutter_bloc_base;
 
   /// No description provided for @home.
   ///

@@ -1,5 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:wesplit/common/core/core.dart';
+import 'package:flutter_bloc_base/common/core/core.dart';
 
 class SupabaseServices {
   static initialiseSupabase() async {

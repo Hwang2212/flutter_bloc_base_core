@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:wesplit/common/common.dart';
-import 'package:wesplit/features/splash/views/splash_view.dart';
-import 'package:wesplit/generated/l10n.dart';
+import 'package:flutter_bloc_base/common/common.dart';
+import 'package:flutter_bloc_base/features/splash/views/splash_view.dart';
+import 'package:flutter_bloc_base/generated/l10n.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

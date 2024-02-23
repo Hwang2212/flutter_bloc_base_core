@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wesplit/features/home/views/home_view.dart';
-import 'package:wesplit/features/splash/splash.dart';
+import 'package:flutter_bloc_base/features/home/views/home_view.dart';
+import 'package:flutter_bloc_base/features/splash/splash.dart';
 
 class RouteGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

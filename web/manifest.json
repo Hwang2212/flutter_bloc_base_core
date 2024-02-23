@@ -1,6 +1,6 @@
 {
-    "name": "wesplit",
-    "short_name": "wesplit",
+    "name": "flutter_bloc_base",
+    "short_name": "flutter_bloc_base",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

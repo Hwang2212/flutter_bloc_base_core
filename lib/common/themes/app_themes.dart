@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wesplit/common/themes/themes_extensions.dart';
-import 'package:wesplit/gen/colors.gen.dart';
+import 'package:flutter_bloc_base/common/themes/themes_extensions.dart';
+import 'package:flutter_bloc_base/gen/colors.gen.dart';
 
 import 'app_ui_constants.dart';
 
