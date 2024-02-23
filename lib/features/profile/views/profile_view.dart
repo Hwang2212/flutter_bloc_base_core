@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wesplit/common/common.dart';
+import 'package:flutter_bloc_base/common/common.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

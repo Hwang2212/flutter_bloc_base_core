@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wesplit/generated/l10n.dart';
+import 'package:flutter_bloc_base/generated/l10n.dart';
 
 class SplashPage extends StatefulWidget {
   static const routeName = '/';

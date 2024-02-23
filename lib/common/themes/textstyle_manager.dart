@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wesplit/gen/colors.gen.dart';
+import 'package:flutter_bloc_base/gen/colors.gen.dart';
 
 import 'app_fonts.dart';
 

@@ -1,4 +1,4 @@
-package com.example.wesplit
+package com.example.flutter_bloc_base
 
 import io.flutter.embedding.android.FlutterActivity
 

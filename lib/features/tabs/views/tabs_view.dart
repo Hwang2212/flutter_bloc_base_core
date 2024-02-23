@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wesplit/common/common.dart';
-import 'package:wesplit/features/home/home.dart';
-import 'package:wesplit/features/profile/profile.dart';
-import 'package:wesplit/features/tabs/tabs.dart';
+import 'package:flutter_bloc_base/common/common.dart';
+import 'package:flutter_bloc_base/features/home/home.dart';
+import 'package:flutter_bloc_base/features/profile/profile.dart';
+import 'package:flutter_bloc_base/features/tabs/tabs.dart';
 
 class TabsPage extends StatelessWidget {
   const TabsPage({super.key});
@@ -68,8 +68,8 @@ class _TabsViewState extends State<TabsView> {
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:get_it/get_it.dart';
-// import 'package:wesplit/features/tabs/models/ui/ui.dart';
-// import 'package:wesplit/features/tabs/tabs.dart';
+// import 'package:flutter_bloc_base/features/tabs/models/ui/ui.dart';
+// import 'package:flutter_bloc_base/features/tabs/tabs.dart';
 
 // class TabsPage extends StatefulWidget {
 //   const TabsPage({Key? key}) : super(key: key);

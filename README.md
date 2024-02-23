@@ -1,10 +1,10 @@
 <!-- ![logo](android/app/src/main/ic_launcher-playstore.png) -->
 
-# We Split
+# FlutterBlocBase
 
-An app for WeSplit.
+An app for FlutterBlocBase.
 
-# We Split
+# FlutterBlocBase
 
 
 
@@ -125,7 +125,7 @@ the [official internationalization guide for Flutter](https://flutter.dev/docs/d
 3. Use the new string
 
 ```dart
-import 'package:wesplit/l10n/l10n.dart';
+import 'package:flutter_bloc_base/l10n/l10n.dart';
 
 @override
 Widget build(BuildContext context) {
@@ -155,7 +155,7 @@ Widget build(BuildContext context) {
 5. Use the string with placeholder
 
 ```dart
-import 'package:wesplit/l10n/l10n.dart';
+import 'package:flutter_bloc_base/l10n/l10n.dart';
 
 @override
 Widget build(BuildContext context) {
@@ -390,13 +390,13 @@ code._
 
 1. **development**
     - Target: Mobile App Developer
-    <!-- - API Endpoint: https://my-api-dev.apacdev.WeSplit.com -->
+    <!-- - API Endpoint: https://my-api-dev.apacdev.FlutterBlocBase.com -->
 2. **staging**
-    - Target: We Split Internal
-    <!-- - API Endpoint: https://my-api-dev.apacdev.WeSplit.com -->
+    - Target: FlutterBlocBase Internal
+    <!-- - API Endpoint: https://my-api-dev.apacdev.FlutterBlocBase.com -->
 3. **production**
-    - Target: We Split End Users
-    <!-- - API Endpoint: https://my-api.apac.WeSplit.com -->
+    - Target: FlutterBlocBase End Users
+    <!-- - API Endpoint: https://my-api.apac.FlutterBlocBase.com -->
 
 ### The main files for starting these flavors are separated as below:
 

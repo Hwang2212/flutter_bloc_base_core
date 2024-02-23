@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wesplit/common/core/core.dart';
+import 'package:flutter_bloc_base/common/core/core.dart';
 // import 'package:young_living/common/common.dart';
 
 part 'tabs_event.dart';

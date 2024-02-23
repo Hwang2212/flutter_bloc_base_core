@@ -50,11 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `WeSplit`
-  String get wesplit {
+  /// `FlutterBlocBase`
+  String get flutter_bloc_base {
     return Intl.message(
-      'WeSplit',
-      name: 'wesplit',
+      'FlutterBlocBase',
+      name: 'flutter_bloc_base',
       desc: '',
       args: [],
     );
