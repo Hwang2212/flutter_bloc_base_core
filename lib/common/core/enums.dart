@@ -10,3 +10,23 @@ enum Tabs {
 
   final bool isAccessibleIfNotAuthenticated;
 }
+
+/// Shared Preferences Key
+enum SharedPreferenceKeys {
+  credentials,
+  searchHistory,
+  favourites,
+  myCart,
+  autoshipRequirementsLastUpdated,
+  needUpdate,
+  needForceUpdate,
+  updateTitle,
+  updateMessage,
+  createAccountTimeframe,
+  reviewDialogShownVersion,
+  enrolWithAutoshipDate,
+  creditCardFormDataLastUpdated,
+  graphQlAccessToken;
+
+  const SharedPreferenceKeys();
+}
