@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_base/common/common.dart';
 import 'package:flutter_bloc_base/features/home/home.dart';
-import 'package:flutter_bloc_base/features/profile/profile.dart';
+import 'package:flutter_bloc_base/features/user/user.dart';
 import 'package:flutter_bloc_base/features/tabs/tabs.dart';
 
 class TabsPage extends StatelessWidget {

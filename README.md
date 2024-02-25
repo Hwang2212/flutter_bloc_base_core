@@ -61,14 +61,13 @@ $ flutter run --flavor production --target lib/main_production.dart
    @override
    void initState() {
      super.initState();
-     
+     /// Implement intended Analytics tool
      AnalyticsHelper.logScreen(_screenName);
-     Smartlook.instance.trackNavigationEnter(_screenName);
    }
    
    @override
    void dispose() {
-     Smartlook.instance.trackNavigationExit(_screenName);
+     /// Implement intended Analytics tool
      super.dispose();
    }
    ```
@@ -88,7 +87,6 @@ $ flutter run --flavor production --target lib/main_production.dart
    │   ├── common
    │   │   ├── core
    │   │   │  ├── analytics_helper.dart
-                  
    │   │   │  ├── app_config.dart
    │   │   │  ├── constants.dart
    │   │   │  ├── enums.dart
@@ -105,10 +103,9 @@ the [official internationalization guide for Flutter](https://flutter.dev/docs/d
 
 #### Adding Strings
 
-1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
+1. To add a new localizable string, open the `intl_en.arb` file at `lib/l10n/intl_en.arb`.
    ```json
    {
-      "@@locale": "en", 
       "counterAppBarTitle": "Counter" 
    }
    ```
@@ -116,7 +113,6 @@ the [official internationalization guide for Flutter](https://flutter.dev/docs/d
 
 ```json
 {
-  "@@locale": "en",
   "counterappBarTitle": "Counter",
   "helloWorld": "Hello World"
 }
@@ -125,12 +121,11 @@ the [official internationalization guide for Flutter](https://flutter.dev/docs/d
 3. Use the new string
 
 ```dart
-import 'package:flutter_bloc_base/l10n/l10n.dart';
+import 'package:flutter_bloc_base/generated/l10n.dart';
 
 @override
 Widget build(BuildContext context) {
-  final l10n = context.l10n;
-  return Text(l10n.helloWorld);
+  return Text(context.l10n.helloWorld);
 }
 ```
 
@@ -155,16 +150,15 @@ Widget build(BuildContext context) {
 5. Use the string with placeholder
 
 ```dart
-import 'package:flutter_bloc_base/l10n/l10n.dart';
+import 'package:flutter_bloc_base/generated/l10n.dart';
 
 @override
 Widget build(BuildContext context) {
-  final l10n = context.l10n;
-  return Text(l10n.youHavePressedTimes('5'));
+  return Text(context.l10n.youHavePressedTimes('5'));
 }
 ```
 
-_Note: Adding a new string will need to run `flutter gen-l10n` to generate your localised strings_
+_Note: Adding a new string will need to run `Hot Restart / Hot Reload` to generate your localised strings_
 
 #### Adding Supported Locales
 
@@ -185,14 +179,13 @@ the new locale.
 
 ```text
 ├── l10n
-│   ├── arb
-│   │   ├── app_en.arb
-│   │   └── app_es.arb
+│   ├── intl_en.arb
+│   │── intl_es.arb
 ```
 
 2. Add the translated strings to each `.arb` file.
 
-`app_en.arb`
+`intl_en.arb`
 
 ```json
 {
@@ -201,7 +194,7 @@ the new locale.
 }
 ```
 
-`app_es.arb`
+`intl_es.arb`
 
 ```json
 {
@@ -212,15 +205,7 @@ the new locale.
 
 ### Working with Assets
 
-Included in this project is an asset generation tool used to enforce (if required) asset naming and
-sizing. To run,
-
-```shell
-./generate_asset_metadata.sh
-```
-
-This generated an `assets.g.dart` file in the `common/` folder. You can then access your asset path
-in code using `Assets.fileName.path`.
+`flutter_gen`
 
 ### Maintain versioning
 
@@ -229,9 +214,9 @@ in code using `Assets.fileName.path`.
 
 ```yaml
 # Production
-# version: 1.0.3+15
+# version: 1.0.0+1
 # Staging
-version: 1.0.4+68
+version: 1.0.0+1
 ```
 
 _Note: versions are to be updated every release_
@@ -362,6 +347,8 @@ categories Event, State and BloC.
 
 ## Testing
 
+### Unit Testing
+`https://betterprogramming.pub/flutter-unit-testing-the-beginners-guide-35105164722e`
 -- To be implemented --
 
 ## Build Process
