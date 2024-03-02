@@ -45,18 +45,33 @@ $ flutter run --flavor production --target lib/main_production.dart
 
 2. Name the created class accordingly to the file name with CamelCase format. <br>
 3. Import `'package:flutter/material.dart'` for both state widget. <br>
-4. Add class name into constant file under `AnalyticsScreenName` class:
+4. Extend your Page's Stateless Widget with `PageNavigateMixin` and provide a method for `goName` and `routeName`:
+   ```dart
+   class YourNewPage extends StatelessWidget with PageNavigateMixin {
+     const YourNewPage();
+
+    /// TODO: Implement Go Name
+    @override
+    String get goName => 'your-new-view';
+
+   /// TODO: Implement Route Name
+    @override
+    String get routeName => goNameWithSlash;
+
+   }
+   ```
+5. Add class name into constant file under `AnalyticsScreenName` class:
    ```dart
    class AnalyticsScreenName {
      // ...
       static const className = 'class_name';
    }
    ```
-5. Create a constant at top of class setting its screen name. E.g.: <br>
+6. Create a constant at top of class setting its screen name. E.g.: <br>
    ```dart
    const _screenName = AnalyticsScreenName.className;
    ```
-6. Override initState and dispose method to log the class screen.
+7. Override initState and dispose method to log the class screen.
    ```dart
    @override
    void initState() {
@@ -71,7 +86,7 @@ $ flutter run --flavor production --target lib/main_production.dart
      super.dispose();
    }
    ```
-7. Return AppScaffold widget for a whole new page under build method.
+8. Return AppScaffold widget for a whole new page under build method.
    ```dart
    @override
    Widget build(BuildContext context) {
@@ -81,7 +96,7 @@ $ flutter run --flavor production --target lib/main_production.dart
      );
    }
    ```
-8. Some common used handler and widgets can be found under this folder:
+9. Some common used handler and widgets can be found under this folder:
    ```
    ├── lib
    │   ├── common

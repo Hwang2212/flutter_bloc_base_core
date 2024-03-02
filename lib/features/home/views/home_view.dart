@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_base/common/core/extensions.dart';
 
-class HomePage extends StatelessWidget {
-  static const routeName = '/home';
+class HomePage extends StatelessWidget with PageNavigateMixin {
+  @override
+  String get goName => 'home-view';
+  @override
+  String get routeName => goNameWithSlash;
 
   const HomePage({super.key});
 

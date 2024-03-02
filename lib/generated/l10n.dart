@@ -99,6 +99,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Page Not Found: Invalid Link!`
+  String get pageNotFoundInvalidLink {
+    return Intl.message(
+      'Page Not Found: Invalid Link!',
+      name: 'pageNotFoundInvalidLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go Back`
+  String get goBack {
+    return Intl.message(
+      'Go Back',
+      name: 'goBack',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

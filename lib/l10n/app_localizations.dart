@@ -120,6 +120,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hi'**
   String get hi;
+
+  /// No description provided for @pageNotFoundInvalidLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Not Found: Invalid Link!'**
+  String get pageNotFoundInvalidLink;
+
+  /// No description provided for @goBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBack;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

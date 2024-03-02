@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_base/common/common.dart';
 import 'package:flutter_bloc_base/generated/l10n.dart';
 
-class SplashPage extends StatefulWidget {
-  static const routeName = '/';
+class SplashPage extends StatelessWidget with PageNavigateMixin {
+  @override
+  String get goName => '';
+
+  @override
+  String get routeName => goNameWithSlash;
+
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  Widget build(BuildContext context) {
+    return const SplashView();
+  }
 }
 
-class _SplashPageState extends State<SplashPage> {
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
