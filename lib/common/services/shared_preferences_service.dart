@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:get_it/get_it.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc_base/common/common.dart';
@@ -10,17 +7,19 @@ class SharedPreferencesService {
 
   final SharedPreferences prefs;
 
-
   Future<bool> clearCredentials() {
     return prefs.remove(SharedPreferenceKeys.credentials.toString());
   }
 
   String? getAccessToken() {
-    // return getCredentials()?.accessToken;
+    // TODO DEVELOPER: Get Access Token IMPL
+    return null;
   }
 
   String? getRefreshToken() {
-    // return getCredentials()?.refreshToken;
+    // TODO DEVELOPER: Get Refresh Token IMPL
+
+    return null;
   }
 
   Future<bool> loggedOut() async {
@@ -32,16 +31,6 @@ class SharedPreferencesService {
   }
 
   Future<bool> _setString(String key, String value) async {
-    /// AGMO loongyeat:
-    /// Note: Due to limitations in Android's SharedPreferences,
-    /// values cannot start with any one of the following:
-    ///
-    /// 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu'
-    /// 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy'
-    /// 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBEb3VibGUu'
-    ///
-    /// Because of this, let's just append '#' in front
-    /// of our values and remove it when fetching.
     return prefs.setString(
       key,
       '#$value',
@@ -51,8 +40,6 @@ class SharedPreferencesService {
   String? _getString(String key) {
     final value = prefs.getString(key);
 
-    /// AGMO loonyeat: Remove '#' character at the start.
-    /// See `_setString` for more details.
     return value?.substring(1);
   }
 

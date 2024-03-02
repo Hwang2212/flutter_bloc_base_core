@@ -25,8 +25,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "bill": MessageLookupByLibrary.simpleMessage("Bill"),
         "flutter_bloc_base":
             MessageLookupByLibrary.simpleMessage("FlutterBlocBase"),
+        "goBack": MessageLookupByLibrary.simpleMessage("Go Back"),
         "hi": MessageLookupByLibrary.simpleMessage("Hi"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "pageNotFoundInvalidLink": MessageLookupByLibrary.simpleMessage(
+            "Page Not Found: Invalid Link!"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile")
       };
 }

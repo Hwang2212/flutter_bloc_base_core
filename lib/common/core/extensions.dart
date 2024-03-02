@@ -100,3 +100,14 @@ extension MapExtensions on Map {
     return removeWhere((dynamic key, dynamic value) => value == null);
   }
 }
+
+/// TODO DEVELOPER: Every New Page have PageNavigateMixin for Go Router to work.
+mixin PageNavigateMixin on StatelessWidget {
+  @factory
+  String get goName;
+
+  @factory
+  String get routeName;
+
+  String get goNameWithSlash => '/$goName';
+}

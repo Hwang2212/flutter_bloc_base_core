@@ -3,5 +3,7 @@
     "home":"Home",
     "profile":"Profile",
     "bill":"Bill",
-    "hi":"Hi"
+    "hi":"Hi",
+    "pageNotFoundInvalidLink":"Page Not Found: Invalid Link!",
+    "goBack":"Go Back"
 }

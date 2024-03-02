@@ -18,4 +18,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hi => 'Hi';
+
+  @override
+  String get pageNotFoundInvalidLink => 'Page Not Found: Invalid Link!';
+
+  @override
+  String get goBack => 'Go Back';
 }
