@@ -6,11 +6,10 @@ import 'package:flutter_bloc_base/generated/l10n.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: route,
+      routerConfig: AppNavigationHelper.router,
       theme: AppTheme.light,
       localizationsDelegates: const [
         S.delegate,

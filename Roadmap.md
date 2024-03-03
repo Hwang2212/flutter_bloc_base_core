@@ -1,6 +1,6 @@
 # Roadmap for Flutter Bloc TDD Template Project
 
-1. Migrate from Navigator to Go Router - `Deep Linking`
+1.  **DONE** Migrate from Navigator to Go Router - `Deep Linking` 
 2. Basic Homepage UI
 3. README Update for:
     * Asset Generation with Flutter_Gen

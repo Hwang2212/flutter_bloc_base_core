@@ -84,7 +84,7 @@ class AppScaffold extends StatelessWidget {
 
     return Stack(
       children: [
-        homeScaffoldBody,
+        SafeArea(child: homeScaffoldBody),
       ],
     );
   }

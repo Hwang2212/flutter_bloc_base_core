@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_base/common/common.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -62,6 +63,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
         options.tracesSampleRate = 1.0;
       },
       appRunner: () async {
+        AppConfig.initaliseApp();
         runApp(await builder());
       },
     );

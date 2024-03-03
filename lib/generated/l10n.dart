@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `FlutterBlocBase`
+  /// `Flutter Bloc Base`
   String get flutter_bloc_base {
     return Intl.message(
-      'FlutterBlocBase',
+      'Flutter Bloc Base',
       name: 'flutter_bloc_base',
       desc: '',
       args: [],

@@ -24,7 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bill": MessageLookupByLibrary.simpleMessage("Bill"),
         "flutter_bloc_base":
-            MessageLookupByLibrary.simpleMessage("FlutterBlocBase"),
+            MessageLookupByLibrary.simpleMessage("Flutter Bloc Base"),
         "goBack": MessageLookupByLibrary.simpleMessage("Go Back"),
         "hi": MessageLookupByLibrary.simpleMessage("Hi"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
