@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_base/common/common.dart';
 
-class HomePage extends StatelessWidget with PageNavigateMixin {
+class ProfilePage extends StatelessWidget with PageNavigateMixin {
   @override
-  String get goName => 'home-view';
+  String get goName => 'profile-view';
   @override
   String get routeName => goNameWithSlash;
 
-  const HomePage({super.key});
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const HomeView();
+    return const ProfileView();
   }
 }
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class ProfileView extends StatefulWidget {
+  const ProfileView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _ProfileViewState extends State<ProfileView> {
   int _counter = 0;
 
   void _incrementCounter() {

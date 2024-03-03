@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppSize {
   static const double s3 = 3;
   static const double s5 = 5;
@@ -72,6 +74,9 @@ class AppPadding {
   static const double p200 = 200;
   static const double p300 = 300;
   static const double p400 = 400;
+
+  static const EdgeInsetsGeometry contentPadding =
+      EdgeInsets.symmetric(horizontal: p20, vertical: p15);
 }
 
 class AppMargin {

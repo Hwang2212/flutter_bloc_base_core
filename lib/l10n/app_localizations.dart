@@ -94,7 +94,7 @@ abstract class AppLocalizations {
   /// No description provided for @flutter_bloc_base.
   ///
   /// In en, this message translates to:
-  /// **'FlutterBlocBase'**
+  /// **'Flutter Bloc Base'**
   String get flutter_bloc_base;
 
   /// No description provided for @home.

@@ -1,40 +1,142 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_base/common/core/app_config.dart';
+import 'package:flutter_bloc_base/common/common.dart';
 import 'package:flutter_bloc_base/features/auth/auth.dart';
-import 'package:flutter_bloc_base/features/home/views/home_view.dart';
+import 'package:flutter_bloc_base/features/home/home.dart';
+import 'package:flutter_bloc_base/features/profile/profile.dart';
+import 'package:flutter_bloc_base/features/settings/views/settings_view.dart';
 import 'package:flutter_bloc_base/features/splash/splash.dart';
+import 'package:flutter_bloc_base/features/tabs/views/tabs_view.dart';
 import 'package:flutter_bloc_base/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
-/// Go Router Implementation:
-final route = GoRouter(
-  errorBuilder: (context, state) {
-    return const _RouterErrorBuilder();
-  },
-  observers: [MyNavigatorObserver(), _routeObserver],
-  navigatorKey: AppConfig.navigatorKey,
-  initialLocation: const SplashPage().routeName,
-  routes: [
-    GoRoute(
-      path: const SplashPage().routeName,
-      builder: (context, state) => const SplashPage(),
-    ),
-    GoRoute(
-      path: const SignInPage().routeName,
-      builder: (context, state) => const SignInPage(),
-    ),
-    GoRoute(
-      path: const SignUpPage().routeName,
-      builder: (context, state) => const SignUpPage(),
-    ),
-    GoRoute(
-      path: const HomePage().routeName,
-      builder: (context, state) => const HomePage(),
-    ),
-  ],
-);
+class AppNavigationHelper {
+  static final AppNavigationHelper _instance = AppNavigationHelper._internal();
+
+  static AppNavigationHelper get instance => _instance;
+
+  static late final GoRouter router;
+
+  factory AppNavigationHelper() {
+    return _instance;
+  }
+
+  /// Instantiate Navigator Keys, espcially BottomNavBar's Navigator Keys
+  static final GlobalKey<NavigatorState> parentNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> homeTabNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> profileTabNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> settingsTabNavigatorKey =
+      GlobalKey<NavigatorState>();
+
+  BuildContext get context =>
+      router.routerDelegate.navigatorKey.currentContext!;
+
+  GoRouterDelegate get routerDelegate => router.routerDelegate;
+
+  GoRouteInformationParser get routeInformationParser =>
+      router.routeInformationParser;
+
+  AppNavigationHelper._internal() {
+    final routes = [
+      GoRoute(
+        path: const SplashPage().routeName,
+        parentNavigatorKey: parentNavigatorKey,
+        builder: (context, state) => const SplashPage(),
+      ),
+      GoRoute(
+        path: const TabsPage().routeName,
+        parentNavigatorKey: parentNavigatorKey,
+        builder: (context, state) => const TabsPage(),
+      ),
+
+      /// Andy: Bottom Navigation Bar uses [StatefulShellRoute.indexedStack]
+      StatefulShellRoute.indexedStack(
+        parentNavigatorKey: parentNavigatorKey,
+        branches: [
+          StatefulShellBranch(
+            navigatorKey: homeTabNavigatorKey,
+            routes: [
+              GoRoute(
+                path: const HomePage().routeName,
+                pageBuilder: (context, state) => getPage(
+                  state: state,
+                  child: const HomePage(),
+                ),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: profileTabNavigatorKey,
+            routes: [
+              GoRoute(
+                path: const ProfilePage().routeName,
+                pageBuilder: (context, state) => getPage(
+                  state: state,
+                  child: const ProfilePage(),
+                ),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: settingsTabNavigatorKey,
+            routes: [
+              GoRoute(
+                path: const SettingsPage().routeName,
+                pageBuilder: (context, state) => getPage(
+                  state: state,
+                  child: const SettingsPage(),
+                ),
+              ),
+            ],
+          ),
+        ],
+        pageBuilder: (context, state, navigationShell) => getPage(
+            child: TabsPage(
+              child: navigationShell,
+            ),
+            state: state),
+      ),
+
+      GoRoute(
+        path: const SignInPage().routeName,
+        parentNavigatorKey: parentNavigatorKey,
+        builder: (context, state) => const SignInPage(),
+      ),
+      GoRoute(
+        path: const SignUpPage().routeName,
+        parentNavigatorKey: parentNavigatorKey,
+        builder: (context, state) => const SignUpPage(),
+      ),
+    ];
+
+    router = GoRouter(
+      errorBuilder: (context, state) {
+        return const _RouterErrorBuilder();
+      },
+      observers: [
+        MyNavigatorObserver(),
+        _routeObserver,
+      ],
+      navigatorKey: parentNavigatorKey,
+      initialLocation: const SplashPage().routeName,
+      routes: routes,
+    );
+  }
+
+  static Page getPage({
+    required Widget child,
+    required GoRouterState state,
+  }) {
+    return MaterialPage(
+      key: state.pageKey,
+      child: child,
+    );
+  }
+}
 
 /// GoRoute Error Redirection Builder:
 class _RouterErrorBuilder extends StatefulWidget {
@@ -48,7 +150,7 @@ class _RouterErrorBuilderState extends State<_RouterErrorBuilder> {
   // final _log = Logger("RouterErrorBuilder");
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       appBar: AppBar(
         centerTitle: false,
         title: const Icon(Icons.error),

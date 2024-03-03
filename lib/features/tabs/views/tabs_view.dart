@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_base/common/common.dart';
-import 'package:flutter_bloc_base/features/home/home.dart';
-import 'package:flutter_bloc_base/features/user/user.dart';
 import 'package:flutter_bloc_base/features/tabs/tabs.dart';
+import 'package:go_router/go_router.dart';
 
 class TabsPage extends StatelessWidget with PageNavigateMixin {
-  const TabsPage({super.key});
+  final StatefulNavigationShell? child;
+  const TabsPage({
+    super.key,
+    this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider(
-        create: (_) => TabsBloc(),
-      ),
-    ], child: const TabsView());
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => TabsBloc(),
+          ),
+        ],
+        child: TabsView(
+          child: child,
+        ));
   }
 
   @override
@@ -25,17 +32,9 @@ class TabsPage extends StatelessWidget with PageNavigateMixin {
 }
 
 class TabsView extends StatefulWidget {
-  static final tabPages = [
-    TabPageModel(
-      key: GlobalKey<NavigatorState>(),
-      page: const HomePage(),
-    ),
-    TabPageModel(
-      key: GlobalKey<NavigatorState>(),
-      page: const ProfilePage(),
-    ),
-  ];
-  const TabsView({super.key});
+  final StatefulNavigationShell? child;
+
+  const TabsView({super.key, this.child});
 
   @override
   State<TabsView> createState() => _TabsViewState();
@@ -44,29 +43,41 @@ class TabsView extends StatefulWidget {
 class _TabsViewState extends State<TabsView> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TabsBloc, TabsState>(builder: (context, state) {
-      return AppScaffold(
-        body: _buildMainBody(state.currentTab.index),
-      );
-    });
-  }
-
-  Widget _buildMainBody(int currentTabIndex) {
-    return IndexedStack(
-      index: currentTabIndex,
-      children: TabsView.tabPages.map((tabPage) {
-        return Navigator(
-          key: tabPage.key,
-          onGenerateRoute: (settings) {
-            return MaterialPageRoute<void>(
-              builder: (_) {
-                return tabPage.page;
-              },
-              settings: settings,
-            );
-          },
-        );
-      }).toList(),
+    return AppScaffold(
+      body: SafeArea(
+        child: widget.child ?? Container(),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: widget.child?.currentIndex ?? 0,
+        onTap: (index) {
+          widget.child?.goBranch(
+            index,
+            initialLocation: index == widget.child?.currentIndex,
+          );
+          setState(() {});
+        },
+        items: const [
+          BottomNavigationBarItem(
+            label: 'home',
+            icon: Icon(
+              Icons.home,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'profile',
+            icon: Icon(
+              Icons.people,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'settings',
+            icon: Icon(
+              Icons.settings,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

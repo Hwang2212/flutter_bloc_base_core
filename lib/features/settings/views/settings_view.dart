@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_base/common/common.dart';
 
-class HomePage extends StatelessWidget with PageNavigateMixin {
+class SettingsPage extends StatelessWidget with PageNavigateMixin {
   @override
-  String get goName => 'home-view';
+  String get goName => 'settings-view';
   @override
   String get routeName => goNameWithSlash;
 
-  const HomePage({super.key});
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const HomeView();
+    return const SettingsView();
   }
 }
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class SettingsView extends StatefulWidget {
+  const SettingsView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _SettingsViewState extends State<SettingsView> {
   int _counter = 0;
 
   void _incrementCounter() {

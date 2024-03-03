@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
 @immutable
-class WeSplitColorThemes extends ThemeExtension<WeSplitColorThemes> {
-  const WeSplitColorThemes({
+class AppColorThemes extends ThemeExtension<AppColorThemes> {
+  const AppColorThemes({
     required this.primaryColor,
     required this.secondaryColor,
     required this.tertiaryColor,
@@ -15,13 +15,13 @@ class WeSplitColorThemes extends ThemeExtension<WeSplitColorThemes> {
   final Color primaryColor, secondaryColor, tertiaryColor, neutralColor;
 
   @override
-  ThemeExtension<WeSplitColorThemes> copyWith({
+  ThemeExtension<AppColorThemes> copyWith({
     Color? primaryColor,
     Color? secondaryColor,
     Color? tertiaryColor,
     Color? neutralColor,
   }) {
-    return WeSplitColorThemes(
+    return AppColorThemes(
       primaryColor: primaryColor ?? this.primaryColor,
       secondaryColor: secondaryColor ?? this.secondaryColor,
       tertiaryColor: tertiaryColor ?? this.tertiaryColor,
@@ -30,15 +30,15 @@ class WeSplitColorThemes extends ThemeExtension<WeSplitColorThemes> {
   }
 
   @override
-  ThemeExtension<WeSplitColorThemes> lerp(
-    covariant ThemeExtension<WeSplitColorThemes>? other,
+  ThemeExtension<AppColorThemes> lerp(
+    covariant ThemeExtension<AppColorThemes>? other,
     double t,
   ) {
-    if (other is! WeSplitColorThemes) {
+    if (other is! AppColorThemes) {
       return this;
     }
 
-    return WeSplitColorThemes(
+    return AppColorThemes(
       primaryColor: Color.lerp(primaryColor, other.primaryColor, t)!,
       secondaryColor: Color.lerp(secondaryColor, other.secondaryColor, t)!,
       tertiaryColor: Color.lerp(tertiaryColor, other.tertiaryColor, t)!,
