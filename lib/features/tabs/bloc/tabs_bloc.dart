@@ -1,1 +1,1 @@
-export 'tabs/tabs_bloc.dart';
+export 'tabs/tabs_cubit.dart';

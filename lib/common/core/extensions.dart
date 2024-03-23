@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_base/generated/l10n.dart';
+import 'package:go_router/go_router.dart';
 
 extension BuildContextExtension on BuildContext {
   /// Theme Getter
@@ -10,6 +11,9 @@ extension BuildContextExtension on BuildContext {
 
   /// App Localization extension.
   S get l10n => S.of(this);
+
+  /// Navigator
+  GoRouter get goRoute => GoRouter.of(this);
 
   /// Bloc TryRead Errors.
   T? tryRead<T>() {

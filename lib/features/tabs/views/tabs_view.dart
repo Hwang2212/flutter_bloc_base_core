@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_base/common/common.dart';
+import 'package:flutter_bloc_base/features/home/home.dart';
+import 'package:flutter_bloc_base/features/profile/profile.dart';
+import 'package:flutter_bloc_base/features/settings/settings.dart';
 import 'package:flutter_bloc_base/features/tabs/tabs.dart';
-import 'package:go_router/go_router.dart';
 
 class TabsPage extends StatelessWidget with PageNavigateMixin {
-  final StatefulNavigationShell? child;
+  final Widget? child;
   const TabsPage({
     super.key,
     this.child,
@@ -16,7 +18,7 @@ class TabsPage extends StatelessWidget with PageNavigateMixin {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) => TabsBloc(),
+            create: (_) => TabsCubit(),
           ),
         ],
         child: TabsView(
@@ -32,7 +34,7 @@ class TabsPage extends StatelessWidget with PageNavigateMixin {
 }
 
 class TabsView extends StatefulWidget {
-  final StatefulNavigationShell? child;
+  final Widget? child;
 
   const TabsView({super.key, this.child});
 
@@ -49,13 +51,27 @@ class _TabsViewState extends State<TabsView> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: widget.child?.currentIndex ?? 0,
+        currentIndex: context.watch<TabsCubit>().state,
         onTap: (index) {
-          widget.child?.goBranch(
-            index,
-            initialLocation: index == widget.child?.currentIndex,
-          );
-          setState(() {});
+          // Andy Dev: Not Only we have to navigate to Go Route,
+          // TabsCubit must be update as well.
+          switch (index) {
+            case 0:
+              context.goRoute.go(const HomePage().routeName);
+              context.read<TabsCubit>().update(0);
+              break;
+            case 1:
+              context.goRoute.go(const ProfilePage().routeName);
+              context.read<TabsCubit>().update(1);
+
+              break;
+            case 2:
+              context.goRoute.go(const SettingsPage().routeName);
+              context.read<TabsCubit>().update(2);
+
+              break;
+            default:
+          }
         },
         items: const [
           BottomNavigationBarItem(
