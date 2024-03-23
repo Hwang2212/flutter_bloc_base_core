@@ -50,7 +50,9 @@ class AppNavigationHelper {
       GoRoute(
         path: const TabsPage().routeName,
         parentNavigatorKey: parentNavigatorKey,
-        builder: (context, state) => const TabsPage(),
+        builder: (context, state) => const TabsPage(
+          child: HomePage(),
+        ),
       ),
 
       /// Andy: Bottom Navigation Bar uses [StatefulShellRoute.indexedStack]
@@ -58,7 +60,6 @@ class AppNavigationHelper {
         parentNavigatorKey: parentNavigatorKey,
         branches: [
           StatefulShellBranch(
-            navigatorKey: homeTabNavigatorKey,
             routes: [
               GoRoute(
                 path: const HomePage().routeName,
@@ -70,7 +71,6 @@ class AppNavigationHelper {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: profileTabNavigatorKey,
             routes: [
               GoRoute(
                 path: const ProfilePage().routeName,
@@ -82,7 +82,6 @@ class AppNavigationHelper {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: settingsTabNavigatorKey,
             routes: [
               GoRoute(
                 path: const SettingsPage().routeName,
@@ -95,10 +94,11 @@ class AppNavigationHelper {
           ),
         ],
         pageBuilder: (context, state, navigationShell) => getPage(
-            child: TabsPage(
-              child: navigationShell,
-            ),
-            state: state),
+          child: TabsPage(
+            child: navigationShell,
+          ),
+          state: state,
+        ),
       ),
 
       GoRoute(
@@ -147,7 +147,6 @@ class _RouterErrorBuilder extends StatefulWidget {
 }
 
 class _RouterErrorBuilderState extends State<_RouterErrorBuilder> {
-  // final _log = Logger("RouterErrorBuilder");
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

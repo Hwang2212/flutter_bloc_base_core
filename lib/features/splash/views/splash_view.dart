@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_base/common/common.dart';
-import 'package:flutter_bloc_base/features/tabs/views/tabs_view.dart';
+import 'package:flutter_bloc_base/features/home/home.dart';
 import 'package:flutter_bloc_base/gen/colors.gen.dart';
 import 'package:flutter_bloc_base/generated/l10n.dart';
 
@@ -35,7 +35,7 @@ class _SplashViewState extends State<SplashView> {
       Future.delayed(
         const Duration(seconds: 3),
         () => AppNavigationHelper.router.push(
-          const TabsPage().routeName,
+          const HomePage().routeName,
         ),
       );
     });

@@ -20,10 +20,10 @@ class AppTheme {
 
     //Icon Theme
     iconTheme: const IconThemeData(color: ColorName.grayAdb5bd),
-    canvasColor: ColorName.darkGray495057,
+    canvasColor: ColorName.white,
     scaffoldBackgroundColor: ColorName.white,
     highlightColor: Colors.transparent,
-    focusColor: ColorName.darkGray495057,
+    focusColor: ColorName.white,
 
     // //Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -98,10 +98,10 @@ class AppTheme {
   );
 
   static const _lightAppColors = AppColorThemes(
-    primaryColor: ColorName.darkerGray343a40,
+    primaryColor: ColorName.black,
     secondaryColor: ColorName.white,
-    tertiaryColor: ColorName.darkerGray343a40,
-    neutralColor: ColorName.lightGrayCed4da,
+    tertiaryColor: ColorName.black,
+    neutralColor: ColorName.black,
   );
 
   //

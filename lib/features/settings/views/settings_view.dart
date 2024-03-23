@@ -42,13 +42,13 @@ class _SettingsViewState extends State<SettingsView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
-                'You have pushed the button this many times:',
+                'SETTINGS:',
               ),
               Text(
                 '$_counter',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Wodiuleiloumou')),
+              ElevatedButton(onPressed: () {}, child: Text('Settings')),
             ],
           ),
         ),
