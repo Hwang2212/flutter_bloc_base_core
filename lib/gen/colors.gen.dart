@@ -95,6 +95,33 @@ class ColorName {
   );
 
   /// MaterialColor:
+  ///   50: #FFFFE7E7
+  ///   100: #FFFFC2C2
+  ///   200: #FFFF9999
+  ///   300: #FFFF7070
+  ///   400: #FFFF5252
+  ///   500: #FFFF3333
+  ///   600: #FFFF2E2E
+  ///   700: #FFFF2727
+  ///   800: #FFFF2020
+  ///   900: #FFFF1414
+  static const MaterialColor errorRedFf3333 = MaterialColor(
+    0xFFFF3333,
+    <int, Color>{
+      50: Color(0xFFFFE7E7),
+      100: Color(0xFFFFC2C2),
+      200: Color(0xFFFF9999),
+      300: Color(0xFFFF7070),
+      400: Color(0xFFFF5252),
+      500: Color(0xFFFF3333),
+      600: Color(0xFFFF2E2E),
+      700: Color(0xFFFF2727),
+      800: Color(0xFFFF2020),
+      900: Color(0xFFFF1414),
+    },
+  );
+
+  /// MaterialColor:
   ///   50: #FFF5F6F7
   ///   100: #FFE6E9EB
   ///   200: #FFD6DADE

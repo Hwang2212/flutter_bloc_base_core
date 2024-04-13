@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_base/common/common.dart';
+import 'package:flutter_bloc_base/common/widgets/src/app_search_delegate.dart';
 
 class HomePage extends StatelessWidget with PageNavigateMixin {
   @override
@@ -23,14 +25,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -41,23 +35,44 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text(
-                'HOME:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              ElevatedButton(onPressed: () {}, child: const Text('Home')),
+              _buildTitle(),
+              _buildSearchBar(),
+              _buildTopSellingCarousel(),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+
+  Widget _buildTitle() {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        context.l10n.home,
+        style: getExtraBoldStyle(fontSize: FontSize.s30),
+        textScaler: TextScaler.linear(
+          ScaleSize.textScaleFactor(context),
+        ),
       ),
+    );
+  }
+
+  Widget _buildSearchBar() {
+    return AppSearchBar(
+      onPressed: () {
+        showSearch(context: context, delegate: AppSearchDelegate());
+      },
+    );
+  }
+
+  Widget _buildTopSellingCarousel() {
+    return CarouselSlider.builder(
+      itemCount: 10,
+      itemBuilder: (context, index, realIndex) {
+        return Card();
+      },
+      options: CarouselOptions(aspectRatio: 16 / 9),
     );
   }
 }

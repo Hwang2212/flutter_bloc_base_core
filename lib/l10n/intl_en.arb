@@ -5,5 +5,8 @@
     "bill":"Bill",
     "hi":"Hi",
     "pageNotFoundInvalidLink":"Page Not Found: Invalid Link!",
-    "goBack":"Go Back"
+    "goBack":"Go Back",
+    "welcomeUser":"Welcome {name}",
+    "settings":"Settings",
+    "search":"Search"
 }

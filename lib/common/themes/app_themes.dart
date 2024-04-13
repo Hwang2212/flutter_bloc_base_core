@@ -27,16 +27,26 @@ class AppTheme {
 
     // //Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-            elevation: 0,
-            disabledForegroundColor: ColorName.white,
-            disabledBackgroundColor: ColorName.grayAdb5bd,
-            // shadowColor: Colors.transparent,
-            backgroundColor: ColorName.lightGrayCed4da,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            textStyle: getMediumStyle(fontSize: 14, color: ColorName.white),
-            foregroundColor: ColorName.darkGray495057)),
+      style: ElevatedButton.styleFrom(
+          elevation: 0,
+          disabledForegroundColor: ColorName.white,
+          disabledBackgroundColor: ColorName.grayAdb5bd,
+          // shadowColor: Colors.transparent,
+          backgroundColor: ColorName.lightGrayCed4da,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          textStyle: getMediumStyle(fontSize: 14, color: ColorName.white),
+          foregroundColor: ColorName.darkGray495057),
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: ColorName.black,
+      unselectedItemColor: ColorName.lightGrayCed4da,
+      selectedItemColor: ColorName.white,
+      showSelectedLabels: true,
+      showUnselectedLabels: false,
+      landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
+    ),
 
     // // Outline Button Theme
     // outlinedButtonTheme: OutlinedButtonThemeData(
@@ -55,7 +65,7 @@ class AppTheme {
 
     // AppBar Theme
     appBarTheme: const AppBarTheme(
-      backgroundColor: ColorName.black,
+      backgroundColor: ColorName.white,
       elevation: 0,
       iconTheme: IconThemeData(color: ColorName.white),
     ),
