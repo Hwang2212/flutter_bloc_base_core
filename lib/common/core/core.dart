@@ -7,3 +7,4 @@ export 'usecases.dart';
 export 'router.dart';
 export 'typedefs.dart';
 export 'field_converter.dart';
+export 'general_helper.dart';
