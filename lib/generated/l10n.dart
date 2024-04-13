@@ -119,36 +119,6 @@ class S {
       args: [],
     );
   }
-
-  /// `Welcome {name}`
-  String welcomeUser(Object name) {
-    return Intl.message(
-      'Welcome $name',
-      name: 'welcomeUser',
-      desc: '',
-      args: [name],
-    );
-  }
-
-  /// `Settings`
-  String get settings {
-    return Intl.message(
-      'Settings',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Search`
-  String get search {
-    return Intl.message(
-      'Search',
-      name: 'search',
-      desc: '',
-      args: [],
-    );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

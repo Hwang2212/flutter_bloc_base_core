@@ -8,6 +8,5 @@
     <color name="grayer_6c757d" type="material">#6C757D</color>
     <color name="dark_gray_495057" type="material">#495057</color>
     <color name="darker_gray_343a40" type="material">#343A40</color>
-    <color name="error_red_ff3333" type="material">#ff3333</color>
     <color name="black" type="material">#212529</color>
 </resource>

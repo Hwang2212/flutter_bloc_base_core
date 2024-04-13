@@ -49,54 +49,50 @@ class _TabsViewState extends State<TabsView> {
       body: SafeArea(
         child: widget.child ?? Container(),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            color: Colors.red, borderRadius: BorderRadius.circular(20)),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: context.watch<TabsCubit>().state,
-          onTap: (index) {
-            // Andy Dev: Not Only we have to navigate to Go Route,
-            // TabsCubit must be update as well.
-            switch (index) {
-              case 0:
-                context.goRoute.go(const HomePage().routeName);
-                context.read<TabsCubit>().update(0);
-                break;
-              case 1:
-                context.goRoute.go(const ProfilePage().routeName);
-                context.read<TabsCubit>().update(1);
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: context.watch<TabsCubit>().state,
+        onTap: (index) {
+          // Andy Dev: Not Only we have to navigate to Go Route,
+          // TabsCubit must be update as well.
+          switch (index) {
+            case 0:
+              context.goRoute.go(const HomePage().routeName);
+              context.read<TabsCubit>().update(0);
+              break;
+            case 1:
+              context.goRoute.go(const ProfilePage().routeName);
+              context.read<TabsCubit>().update(1);
 
-                break;
-              case 2:
-                context.goRoute.go(const SettingsPage().routeName);
-                context.read<TabsCubit>().update(2);
+              break;
+            case 2:
+              context.goRoute.go(const SettingsPage().routeName);
+              context.read<TabsCubit>().update(2);
 
-                break;
-              default:
-            }
-          },
-          items: [
-            BottomNavigationBarItem(
-              label: context.l10n.home,
-              icon: const Icon(
-                Icons.home,
-              ),
+              break;
+            default:
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            label: 'home',
+            icon: Icon(
+              Icons.home,
             ),
-            BottomNavigationBarItem(
-              label: context.l10n.profile,
-              icon: const Icon(
-                Icons.people,
-              ),
+          ),
+          BottomNavigationBarItem(
+            label: 'profile',
+            icon: Icon(
+              Icons.people,
             ),
-            BottomNavigationBarItem(
-              label: context.l10n.settings,
-              icon: const Icon(
-                Icons.settings,
-              ),
+          ),
+          BottomNavigationBarItem(
+            label: 'settings',
+            icon: Icon(
+              Icons.settings,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

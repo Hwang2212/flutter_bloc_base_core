@@ -132,24 +132,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go Back'**
   String get goBack;
-
-  /// No description provided for @welcomeUser.
-  ///
-  /// In en, this message translates to:
-  /// **'Welcome {name}'**
-  String welcomeUser(Object name);
-
-  /// No description provided for @settings.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
-
-  /// No description provided for @search.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get search;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
