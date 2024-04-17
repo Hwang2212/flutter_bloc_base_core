@@ -24,7 +24,6 @@ dependencies:
   intl: ^0.18.1
   material_color_utilities: ^0.5.0
   get_it: ^7.6.7
-  freezed: ^2.4.6
   equatable: ^2.0.5
   flutter_localizations:
     sdk: flutter
@@ -39,13 +38,18 @@ dependencies:
   go_router: ^13.2.0
   animated_text_kit: ^4.2.2
   carousel_slider: ^4.2.1
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+  internet_connection_checker: ^1.0.0+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  build_runner: ^2.4.8
+  build_runner: ^2.4.9
   flutter_gen_runner: ^5.4.0
+  json_serializable: ^6.7.1
+  freezed: ^2.5.2
 
 
 flutter:
