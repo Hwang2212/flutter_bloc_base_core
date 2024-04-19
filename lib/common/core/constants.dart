@@ -11,7 +11,7 @@ class ApiStatusCodes {
 
 class ApiDefaults {
   // TODO DEVELOPER: Change Base Url of API Service.
-  static const baseUrl = 'API_BASE_URL';
+  static const baseUrl = 'https://fakestoreapi.com/';
   static const sendTimeoutInMilliseconds = 30 * 1000;
   static const connectTimeoutInMilliseconds = 30 * 1000;
   static const receiveTimeoutInMilliseconds = 30 * 1000;

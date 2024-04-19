@@ -13,11 +13,6 @@ abstract class BaseApiService {
     dio.interceptors.add(
       QueuedInterceptorsWrapper(
         onRequest: (options, handler) {
-          if (options.headers.containsKey('Authorization')) {
-            options.headers['Authorization'] =
-                authorisationHeader['Authorization'];
-          }
-
           handler.next(options);
         },
         onError: (error, handler) async {
@@ -35,12 +30,10 @@ abstract class BaseApiService {
               //     .setCredentials(tokenResponse!);
 
               final options = error.requestOptions;
-              options.headers['Authorization'] =
-                  authorisationHeader['Authorization'];
 
               final response = await dio.fetch<void>(options);
               return handler.resolve(response);
-            } on DioError catch (e) {
+            } on DioException catch (e) {
               await AuthenticationService.logOut();
               return handler.reject(e);
             } catch (e) {
@@ -68,10 +61,6 @@ abstract class BaseApiService {
 
   String get baseUrl => ApiDefaults.baseUrl;
 
-  Map<String, String> get authorisationHeader => {
-        if (accessToken != null) 'Authorization': 'Bearer $accessToken',
-      };
-
   Dio _createDio() {
     return Dio(
       BaseOptions(
@@ -93,8 +82,6 @@ abstract class BaseApiService {
   Future<T?> callApi<T>(
     HttpRequestMethod method,
     String urlString, {
-    bool requiresAuthentication = false,
-    bool noCountryCode = false,
     Json? body,
     Map<String, String>? additionalHeaders,
     Dio? customizedDio,
@@ -105,10 +92,7 @@ abstract class BaseApiService {
       final url = Uri.parse(urlString);
       final queryParams = Map<String, String>.from(url.queryParameters);
 
-      final urlWithCountryCode = url.replace(queryParameters: queryParams);
-      final headers =
-          requiresAuthentication ? authorisationHeader : <String, String>{}
-            ..addAll(additionalHeaders ?? {});
+      final headers = <String, String>{}..addAll(additionalHeaders ?? {});
       final options = Options(headers: headers);
       final bodyWithoutNullValues = body?..clearNullValues();
 
@@ -117,21 +101,21 @@ abstract class BaseApiService {
       switch (method) {
         case HttpRequestMethod.get:
           response = await _dio.getUri<T>(
-            noCountryCode ? url : urlWithCountryCode,
+            url,
             options: options,
           );
 
           break;
         case HttpRequestMethod.post:
           response = await _dio.postUri<T>(
-            noCountryCode ? url : urlWithCountryCode,
+            url,
             data: bodyWithoutNullValues,
             options: options,
           );
           break;
         case HttpRequestMethod.put:
           response = await _dio.putUri<T>(
-            noCountryCode ? url : urlWithCountryCode,
+            url,
             data: bodyWithoutNullValues,
             options: options,
           );
@@ -139,7 +123,7 @@ abstract class BaseApiService {
           break;
         case HttpRequestMethod.delete:
           response = await _dio.deleteUri<T>(
-            noCountryCode ? url : urlWithCountryCode,
+            url,
             data: bodyWithoutNullValues,
             options: options,
           );
@@ -152,7 +136,7 @@ abstract class BaseApiService {
       }
 
       return data;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       _logExceptionWithError(method, urlString, error: e);
       return e.response?.data as T;
     } catch (e) {
@@ -171,7 +155,7 @@ abstract class BaseApiService {
       '${error.toString()}',
     );
 
-    if (error is DioError) {
+    if (error is DioException) {
       log('DioError ${error.response}');
     }
   }

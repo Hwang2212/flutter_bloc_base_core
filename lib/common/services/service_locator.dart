@@ -1,3 +1,5 @@
+import 'package:flutter_bloc_base/common/services/dio_service.dart';
+import 'package:flutter_bloc_base/common/services/fake_store_api_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,6 +33,10 @@ Future<void> init() async {
   // final sharedPreferences = await SharedPreferences.getInstance();
   const secureStorage = FlutterSecureStorage();
   sl.registerLazySingleton(() => secureStorage);
+
+  sl.registerLazySingleton(() => DioService());
+
+  sl.registerLazySingleton(() => FakeStoreApiClient(sl()));
 
   // sl.registerLazySingleton(() => sharedPreferences);
 }
