@@ -55,7 +55,7 @@ class AppTheme {
 
     // AppBar Theme
     appBarTheme: const AppBarTheme(
-      backgroundColor: ColorName.black,
+      backgroundColor: ColorName.white,
       elevation: 0,
       iconTheme: IconThemeData(color: ColorName.white),
     ),

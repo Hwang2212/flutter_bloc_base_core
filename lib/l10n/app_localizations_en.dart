@@ -24,4 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get goBack => 'Go Back';
+
+  @override
+  String welcomeUser(Object name) {
+    return 'Welcome $name';
+  }
 }

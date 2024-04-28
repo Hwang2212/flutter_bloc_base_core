@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 
 class AppCustomBar extends StatelessWidget implements PreferredSizeWidget {
   const AppCustomBar(
@@ -8,7 +7,7 @@ class AppCustomBar extends StatelessWidget implements PreferredSizeWidget {
       this.systemOverlayStyle,
       this.backgroundColor,
       super.key,
-      this.automaticallyImplyLeading = true,
+      this.automaticallyImplyLeading = false,
       this.leading,
       this.title,
       this.onBackPressed});
@@ -30,16 +29,7 @@ class AppCustomBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: backgroundColor,
         actions: actions,
         title: title,
-        leading: !automaticallyImplyLeading
-            ? null
-            : leading ??
-                IconButton(
-                  onPressed: onBackPressed ??
-                      () {
-                        context.pop();
-                      },
-                  icon: const Icon(Icons.back_hand),
-                ));
+        leading: !automaticallyImplyLeading ? null : leading);
   }
 
   @override

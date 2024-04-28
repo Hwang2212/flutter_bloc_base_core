@@ -119,6 +119,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome {name}`
+  String welcomeUser(Object name) {
+    return Intl.message(
+      'Welcome $name',
+      name: 'welcomeUser',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

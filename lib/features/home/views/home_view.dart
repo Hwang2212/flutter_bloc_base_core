@@ -23,14 +23,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -41,22 +33,19 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text(
-                'HOME:',
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  context.l10n.home,
+                  style: getExtraBoldStyle(fontSize: FontSize.s30),
+                  textScaler: TextScaler.linear(
+                    ScaleSize.textScaleFactor(context),
+                  ),
+                ),
               ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              ElevatedButton(onPressed: () {}, child: const Text('Home')),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
